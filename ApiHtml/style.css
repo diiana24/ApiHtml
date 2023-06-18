@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    background-color: #B5D5C5 !important;
+  }
+  
+  ul{
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    gap: 1rem;
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  
+  button {
+    background-color: #0e964c;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 0.5rem;
+  }
+  h1 {
+    color: rgb(45, 11, 113);
+    font-family:Arial, Helvetica, sans-serif
+
+}

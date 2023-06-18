@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>MediaSource Api</title>
+</head>
+<body>
+  <h1>Reproducción de vídeo</h1>
+  <section>
+    <label for="file-selector">Selecciona un vídeo para reproducir</label>
+    <input type="file" name="file-selector" accept="video/*"/>
+  </section>
+  <br>
+  
+  <section id="video-player" style="display: none;">
+    <video width="650">
+      El navegador que estás usando no permite reproducir este vídeo,
+      puedes descargarlo <a href="./assets/video.mp4">aquí</a>
+    </video>
+    <p id="loading-message" style="display: none;">Cargando vídeo, por favor espera...</p>
+    <ul id="video-controls" class="controls">
+      <li><button id="play">Reproducir</button></li>
+      <li><button id="pause">Pausa</button></li>
+      <li><button id="vol-up">Subir Volumen</button></li>
+      <li><button id="vol-down">Bajar Volumen</button></li>
+    </ul>
+  </section>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
+
