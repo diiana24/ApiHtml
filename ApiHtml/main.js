@@ -7,11 +7,11 @@ const volDown = document.getElementById("vol-down");
 const loadingMessage = document.getElementById('loading-message');
 const videoPlayer = document.getElementById('video-player');
 
-function isFileApiSupported() {
+function fileSupported() {
   return 'File' in window && 'FileReader' in window && 'Blob' in window;
 }
 
-function isValidVideoFile(file) {
+function validateVideoFile(file) {
   const acceptedMimeTypes = [
     'video/mp4',
     'video/webm',
@@ -21,22 +21,21 @@ function isValidVideoFile(file) {
   return acceptedMimeTypes.includes(file.type);
 }
 
-if (!isFileApiSupported()) {
-  alert('Lo sentimos, tu navegador no es compatible con la File API. Por favor, actualiza a un navegador más moderno.');
+if (!fileSupported()) {
+  alert('Lo sentimos, tu navegador no es compatible. Por favor, intentelo con un nuevo navegador');
 } else {
   fileSelector.addEventListener('change', (event) => {
     const file = event.target.files[0];
 
-    if (file && isValidVideoFile(file)) {
+    if (file && validateVideoFile(file)) {
       loadingMessage.style.display = 'block';
       const fileReader = new FileReader();
 
-      fileReader.onload = (event) => {
+      fileReader.onload= (event) => {
         const blob = new Blob([event.target.result], { type: file.type });
         const url = URL.createObjectURL(blob);
         video.src = url;
       };
-
       fileReader.readAsArrayBuffer(file);
 
     } else {
@@ -44,21 +43,17 @@ if (!isFileApiSupported()) {
       fileSelector.value = '';
     }
   });
-
   play.addEventListener('click', () => {
     video.play();
   });
-
   pause.addEventListener('click', () => {
     video.pause();
   });
-
   volUp.addEventListener('click', () => {
     if (video.volume < 1) {
       video.volume += 0.1;
     }
   });
-
   volDown.addEventListener('click', () => {
     if (video.volume > 0) {
       video.volume -= 0.1;
